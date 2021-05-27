@@ -143,7 +143,7 @@ def sendmail(CustomerEmail , CustomerName):
     msg=f"subject:{subject}\n\n{body}"
 
     server.sendmail(
-        'nevilbavarva477@gmail.com',
+        'email@gmail.com',
         email,
         msg
 
