@@ -128,12 +128,12 @@ def sendmail(CustomerEmail , CustomerName):
     server.ehlo()
     server.starttls()
     server.ehlo()
-    server.login('nevilbavarva477@gmail.com','tnchihokkrrjosee')
+    server.login('email@gmail.com','tnchihokkrrjosee')
     # server =smtplib.SMTP('smtp.gmail.com',587)
     # server.ehlo()
     # server.starttls()
     # server.ehlo()
-    # server.login('nevilbavarva477@gmail.com','tnchihokkrrjosee')
+    # server.login('email@gmail.com','tnchihokkrrjosee')
     email = CustomerEmail
     name = CustomerName
 
