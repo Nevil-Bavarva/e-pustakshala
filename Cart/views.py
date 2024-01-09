@@ -13,7 +13,6 @@ from email.mime.multipart import MIMEMultipart
 import datetime
 import time
 import smtplib
-import pymysql.cursors
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
@@ -292,7 +291,7 @@ def createpdf(Customer_session_id):
     canvas1.line(50, 747, 580, 747) #FROM TOP 1ST LINE
     canvas1.drawString(280, 750, "Bill")
     canvas1.drawString(60, 720, "COMPANY NAME:- E-Pustakshala")
-    canvas1.drawString(60, 690, "EMAIL-ID:- Nevilbavarva477@gmail.com")
+    canvas1.drawString(60, 690, "EMAIL-ID:- E-pustakshala@gmail.com")
     canvas1.drawString(60, 660, "ADDRESS:- abc,def,360005-rajkot")
     canvas1.drawString(450, 720, "DATE :- " + datetime.datetime.now().strftime("%d/%m/%y"))
     canvas1.line(450, 710, 560, 710)
@@ -320,8 +319,8 @@ def createpdf(Customer_session_id):
 
 def sendbill(email):
     COMMASPACE = ', '
-    sender = 'nevilbavarva477@gmail.com'
-    gmail_password = 'tnchihokkrrjosee'
+    sender = 'nevilpatel05317@gmail.com'
+    gmail_password = 'ssmjgqttpjrodfzm'
     recipients = [str(email)]
 
     # Create the enclosing (outer) message
