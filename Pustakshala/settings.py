@@ -26,7 +26,7 @@ SECRET_KEY = '45li&nf3-vn%0q0xxw8omxxv)k_77%doe@qswy(^t0p+d1@@ha'
 DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
