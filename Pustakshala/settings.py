@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '45li&nf3-vn%0q0xxw8omxxv)k_77%doe@qswy(^t0p+d1@@ha'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'now.sh', '127.0.0.1', 'localhost' ]
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -77,15 +77,14 @@ WSGI_APPLICATION = 'Pustakshala.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'PASSWORD': 'E6g11-34CCC-bcf-BcgEdGf1FCEfECF1',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '23550',
     }
 }
 
@@ -132,7 +131,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
-STATIC_ROOT =  os.path.join(BASE_DIR, 'assets', 'assets')
+STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles_build', 'assets')
 
 LOGIN_REDIRECT_URL = '/'
 
