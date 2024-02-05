@@ -284,8 +284,6 @@ def createpdf(Customer_session_id):
         order = None
         carts = None
     canvas1 =canvas.Canvas("(" + datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p") + ").pdf", pagesize=letter)
-    # canvas1 =canvas.Canvas("C:/Users/Neive/Desktop/py/ hello.pdf", pagesize=letter)
-    # canvas1.setFillColorRGB(255,210,150)
     canvas1.setLineWidth(.3)
     canvas1.setFont('Helvetica', 12)
     canvas1.line(50, 747, 580, 747) #FROM TOP 1ST LINE
