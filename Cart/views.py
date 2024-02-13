@@ -225,7 +225,7 @@ def Checkout(request):
         Cus.CustomerState = state
         Cus.CustomerCity = city
         Cus.save()
-        createpdf(userid)
+        # createpdf(userid)
         try:
             # sendbill(Cus.CustomerEmail) - working on it
             pass
