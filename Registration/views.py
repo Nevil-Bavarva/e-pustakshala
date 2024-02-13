@@ -112,9 +112,7 @@ def Logout(request):
 
 
 
-# 
-# 
-# 
+
 # for sending registration mail
 def sendmail(CustomerEmail , CustomerName):
     server =smtplib.SMTP('smtp.gmail.com',587)
@@ -122,11 +120,6 @@ def sendmail(CustomerEmail , CustomerName):
     server.starttls()
     server.ehlo()
     server.login('email@gmail.com','tnchihokkrrjosee')
-    # server =smtplib.SMTP('smtp.gmail.com',587)
-    # server.ehlo()
-    # server.starttls()
-    # server.ehlo()
-    # server.login('email@gmail.com','tnchihokkrrjosee')
     email = CustomerEmail
     name = CustomerName
 
