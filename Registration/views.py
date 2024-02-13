@@ -18,7 +18,6 @@ def Login(request):
     Customer_session_id = None
     if request.session.has_key('id'):
         Customer_session_id=request.session['id']
-        print(Customer_session_id)
     user = Customer_session_id
 
     if request.method=='POST':   
@@ -61,10 +60,7 @@ def Register(request):
         try:
             sendmail(CustomerEmail, CustomerName)
         except:
-            print("except")
             return redirect('Registration:Login')
-        print("normal")
-        # return render(request, 'LoginRegister/Login.html', {})
         return redirect('Registration:Login')
     return render(request, 'LoginRegister/Register.html', {})
     
@@ -76,15 +72,12 @@ def cust_login1(request):
         Customer_session_nm=request.session['name']
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
     user = Customer_session_id
    
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
         if orders.exists():
-            print("if if ")
             order = orders[0]
         else:
             order = None
@@ -148,6 +141,5 @@ def sendmail(CustomerEmail , CustomerName):
         msg
 
     )
-    print('msg has been send')
     server.quit()
 

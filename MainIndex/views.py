@@ -17,15 +17,15 @@ def index(request):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
     
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -62,15 +62,15 @@ def CategoryView(request, id):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
    
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -102,15 +102,15 @@ def PublicationView(request, id):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
    
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -140,15 +140,15 @@ def AuthorView(request, id):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
    
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -185,15 +185,15 @@ def SearchView(request):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
    
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -220,15 +220,15 @@ def DetailsView(request,id):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
    
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -270,14 +270,14 @@ def got(request):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -308,14 +308,14 @@ def hp(request):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -346,14 +346,14 @@ def tw(request):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None
@@ -388,14 +388,14 @@ def allBooks(request):
     Customer_session_id = None
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
+            
     user = Customer_session_id
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
+        
         if orders.exists():
-            print("if if ")
+            
             order = orders[0]
         else:
             order = None

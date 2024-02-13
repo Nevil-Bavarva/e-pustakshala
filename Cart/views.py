@@ -53,19 +53,14 @@ def CartView(request):
         carts = Cart.objects.filter(user=user)
         orders = Order.objects.filter(user=user)
         if carts.exists():
-            print("if")
             if orders.exists():
-                print("if if ")
                 order = orders[0]
                 return render(request, 'cart.html', {'carts': carts, 'order': order , 'Customer_session_nm':Customer_session_nm , 'name':Customer.objects.get(id=user).CustomerName.capitalize() })
             else:
                 return render(request,'cart.html' ,{ 'carts': carts, 'order': order , 'Customer_session_nm':Customer_session_nm  , 'name':Customer.objects.get(id=user).CustomerName.capitalize()} )
-                # messages.warning(request, "You do not have any item in your Cart")
 
             
         else:
-            print('else')
-            # messages.warning(request, "You do not have any item in your Cart")
             return render(request,'cart.html' ,{ 'carts': carts, 'order': order ,'Customer_session_nm':Customer_session_nm , 'name':Customer.objects.get(id=user).CustomerName.capitalize()} )
     else:
         return redirect("Registration:Login")
@@ -74,7 +69,6 @@ def CartView(request):
 
 def add_to_cart(request, id):
     
-    # Customerfds = Customer.objects.get(id=15)
     Customer_session_nm = None
     Customer_session_id = None
     if request.session.has_key('name'):
@@ -90,25 +84,20 @@ def add_to_cart(request, id):
         order_qs = Order.objects.filter(user=userid)
         if order_qs.exists():
             order = order_qs[0]
-            print('order if')
             # check if the order item is in the order
             if order.orderitems.filter(item__id=item.id).exists():
-                print('order if if')
                 order_item.quantity += 1
                 updatestock(userid)
                 order_item.save()
-                # messages.info(request, f"{item.BookName} quantity has updated.")
                 return redirect("Cart:CartView")
             else:
                 
                 order.orderitems.add(order_item)
                 updatestock(userid)
-                # messages.info(request, f"{item.BookName} has added to your cart.")
                 return redirect("Cart:CartView")
         else:
             order = Order.objects.create(user=Customer_name)
             order.orderitems.add(order_item)
-            # messages.info(request, f"{item.BookName} has added to your cart.")
             return redirect("Cart:CartView")
     else:
         return redirect("Registration:Login")
@@ -182,14 +171,10 @@ def decreaseCart(request,id):
                 order.orderitems.remove(order_item)
                 updatestockdes(userid)
                 order_item.delete()
-                # messages.warning(request, f"{item.BookName} has removed from your cart.")
-            # messages.info(request, f"{item.BookName} quantity has updated.")
             return redirect("Cart:CartView")
         else:
-            # messages.info(request, f"{item.BookName} quantity has updated.")
             return redirect("Cart:CartView")
     else:
-        # messages.info(request, "You do not have an active order")
         return redirect("MainIndex:index")
 
 
@@ -207,16 +192,13 @@ def Checkout(request):
         Customer_session_nm=request.session['name']
     if request.session.has_key('id'):
             Customer_session_id=request.session['id']
-            print(Customer_session_id)
     user = Customer_session_id
     userid = Customer_session_id 
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     Customer_obj = Customer.objects.get(id=userid)
     if carts.exists():
-        print("if")
         if orders.exists():
-            print("if if ")
             order = orders[0]
         else:
             order = None
@@ -244,9 +226,9 @@ def Checkout(request):
         Cus.CustomerCity = city
         Cus.save()
         createpdf(userid)
-        # updatestock(userid)
         try:
-            sendbill(Cus.CustomerEmail)
+            # sendbill(Cus.CustomerEmail) - working on it
+            pass
         except:
             print('error sending mail')
         return redirect("Cart:invoice")
@@ -273,9 +255,7 @@ def createpdf(Customer_session_id):
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
         if orders.exists():
-            print("if if ")
             order = orders[0]
         else:
             order = None
@@ -306,18 +286,16 @@ def createpdf(Customer_session_id):
         canvas1.drawString(500, lines, str(cart.item.BookPrice))
         lines = lines -  50
     TOTAL = order.get_totals()
-    print(TOTAL)
     canvas1.line(50, 100, 580, 100)#FROM TOP 4th LINE
     canvas1.drawString(60, 80, " TOTAL AMOUNT ")
     canvas1.drawString(500, 80, str(TOTAL))
     canvas1.line(50, 50, 580, 50)#FROM TOP LAST LINE
     canvas1.save()
-    print('executed !!')
 
 
 def sendbill(email):
     COMMASPACE = ', '
-    sender = 'nevilpatel05317@gmail.com'
+    sender = 'XXX@gmail.com'
     gmail_password = 'ssmjgqttpjrodfzm'
     recipients = [str(email)]
 
@@ -368,9 +346,7 @@ def updatestock(Customer_session_id):
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
         if orders.exists():
-            print("if if ")
             order = orders[0]
         else:
             order = None
@@ -380,14 +356,11 @@ def updatestock(Customer_session_id):
         carts = None
     for cart in carts:  
         refBooks = Book.objects.get(BookName=cart.item.BookName)
-        print("before call : " + str(refBooks.BookStock))
         if(refBooks.BookStock < 1):
             refBooks.BookStock == 0
-            print('value is less than zero')
         else: 
             refBooks.BookStock -= 1
             refBooks.save()
-            print("after call : " + str(refBooks.BookStock))
 
 
 def updatestockdes(Customer_session_id):
@@ -396,9 +369,7 @@ def updatestockdes(Customer_session_id):
     carts = Cart.objects.filter(user=user)
     orders = Order.objects.filter(user=user)
     if carts.exists():
-        print("if")
         if orders.exists():
-            print("if if ")
             order = orders[0]
         else:
             order = None
@@ -408,10 +379,8 @@ def updatestockdes(Customer_session_id):
         carts = None
     for cart in carts:  
         refBooks = Book.objects.get(BookName=cart.item.BookName)
-        print("before call : " + str(refBooks.BookStock)) 
         refBooks.BookStock += 1
         refBooks.save()
-        print("after call : " + str(refBooks.BookStock))
 
 
 def invoice(request):
