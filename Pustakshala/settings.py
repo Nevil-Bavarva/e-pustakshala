@@ -80,14 +80,13 @@ WSGI_APPLICATION = 'Pustakshala.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'E6g11-34CCC-bcf-BcgEdGf1FCEfECF1',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '23550',
+        'NAME': 'tnydfphf',
+        'USER': 'tnydfphf',
+        'PASSWORD': 'DYeAzEcUpZck3EPLJH1ORvQLa2tPyZDG',
+        'HOST': 'mouse.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
